@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ANCHORFIX · Ankeralarm</title>
+<meta name="description" content="ANCHORFIX: Ankeralarm und Karte des Meeresgrunds mit Seegras, Korallen, Bojen und Tiefe. Offline-Karten weltweit.">
+<link rel="canonical" href="https://rdrp-studio.github.io/anchorfix-web/de.html">
+<link rel="alternate" hreflang="es" href="https://rdrp-studio.github.io/anchorfix-web/index.html"><link rel="alternate" hreflang="en" href="https://rdrp-studio.github.io/anchorfix-web/en.html"><link rel="alternate" hreflang="de" href="https://rdrp-studio.github.io/anchorfix-web/de.html"><link rel="alternate" hreflang="fr" href="https://rdrp-studio.github.io/anchorfix-web/fr.html"><link rel="alternate" hreflang="it" href="https://rdrp-studio.github.io/anchorfix-web/it.html"><link rel="alternate" hreflang="pt" href="https://rdrp-studio.github.io/anchorfix-web/pt.html"><link rel="alternate" hreflang="x-default" href="https://rdrp-studio.github.io/anchorfix-web/index.html">
+<meta property="og:title" content="ANCHORFIX · Ankeralarm">
+<meta property="og:description" content="ANCHORFIX: Ankeralarm und Karte des Meeresgrunds mit Seegras, Korallen, Bojen und Tiefe. Offline-Karten weltweit.">
+<meta property="og:image" content="https://rdrp-studio.github.io/anchorfix-web/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#03172A">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icono_32.png">
+<link rel="apple-touch-icon" href="img/icono_180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+:root{--abyss:#03172A;--navy:#06263A;--deep:#082E47;--panel:#0B3654;--line:rgba(150,210,235,.15);
+--text:#EAF4F8;--mute:#A9C3D1;--dim:#7E9DB0;--sea:#4FC8CC;--gold:#E9B949;--warn:#F0A14A;
+--fd:'Barlow Condensed','Arial Narrow',Arial,sans-serif;--fb:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--abyss);color:var(--text);font-family:var(--fb);font-size:17px;line-height:1.6;-webkit-text-size-adjust:100%}
+a{color:var(--gold)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{position:sticky;top:0;z-index:10;background:rgba(3,23,42,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:14px;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:var(--fd);font-weight:800;letter-spacing:.08em;font-size:22px}
+.brand img{width:34px;height:34px;border-radius:9px}
+.brand b{color:var(--gold);font-weight:800}
+.top .sp{flex:1}
+.top nav a{color:var(--mute);text-decoration:none;font-weight:600;font-size:15px}
+.top nav a:hover{color:var(--text)}
+.langs{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.langs a{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--mute);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.04em}
+.langs a:hover{color:var(--text);border-color:var(--sea)}
+.langs a.current{background:var(--gold);border-color:var(--gold);color:#132331}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--dim);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+footer a{color:var(--mute)}
+
+.top .langs{display:none}
+@media(min-width:760px){.top .langs{display:flex}}
+.hero{position:relative;overflow:hidden;background:radial-gradient(1200px 520px at 75% -10%,#0E4B6B 0%,rgba(14,75,107,0) 60%),linear-gradient(180deg,var(--navy),var(--abyss))}
+.hero svg.iso{position:absolute;inset:0;width:100%;height:100%;opacity:.22;pointer-events:none}
+.hero .wrap{position:relative;padding-top:56px;padding-bottom:40px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-family:var(--fd);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);font-size:15px}
+.kicker::before{content:"";width:28px;height:2px;background:var(--sea)}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(44px,8vw,86px);line-height:.95;margin:14px 0 16px;letter-spacing:-.005em;text-wrap:balance}
+.lead{font-size:clamp(18px,2.3vw,22px);color:var(--mute);max-width:640px;margin:0 0 26px;text-wrap:pretty}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:12px;font-weight:700;text-decoration:none;font-size:16px}
+.btn.play{background:var(--gold);color:#10202D}
+.btn.play:hover{background:#F3C960}
+.btn.ghost{border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{border-color:var(--sea)}
+.btn svg{width:18px;height:18px}
+.heroimg{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(0,0,0,.8),0 0 0 6px rgba(79,200,204,.05)}
+.heroimg img{width:100%;height:auto;aspect-ratio:1024/500}
+section{padding:72px 0}
+h2{font-family:var(--fd);font-weight:800;font-size:clamp(32px,5vw,48px);line-height:1;margin:0 0 30px;text-wrap:balance}
+.intro{padding:72px 0 8px}
+.intro h2{margin:0}
+.feat{padding:56px 0;border-bottom:1px solid var(--line)}
+.feat:nth-of-type(even){background:linear-gradient(180deg,rgba(8,46,71,.35),rgba(8,46,71,.15))}
+.feat .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px 56px;align-items:center}
+.feat.rev .wrap{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.feat.rev .txt{order:2}
+.num{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.num .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(79,200,204,.12);color:var(--sea)}
+.num .ic svg{width:24px;height:24px}
+.num span{font-family:var(--fd);font-weight:700;letter-spacing:.14em;color:var(--dim);font-size:15px}
+.feat h3{font-family:var(--fd);font-weight:800;font-size:clamp(30px,4.2vw,44px);line-height:1.02;margin:0 0 14px;text-wrap:balance}
+.feat p{margin:0 0 10px;color:var(--mute);font-size:18px;max-width:520px;text-wrap:pretty}
+.feat .big{font-family:var(--fd);font-weight:800;font-size:clamp(72px,10vw,120px);line-height:.85;color:var(--gold);margin:4px 0 10px}
+.phones{display:flex;justify-content:center;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;scrollbar-width:thin;scrollbar-color:var(--panel) transparent}
+.phones figure{flex:0 1 190px;min-width:0;margin:0;text-align:center;scroll-snap-align:center}
+.phones img{width:100%;height:auto;aspect-ratio:420/814;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
+.phones figcaption{margin-top:8px;font-weight:600;color:var(--dim);font-size:14px}
+@media(max-width:820px){
+ .feat .wrap,.feat.rev .wrap{grid-template-columns:1fr}
+ .feat.rev .txt{order:0}
+ .phones{justify-content:flex-start;margin:0 -16px;padding-left:16px;padding-right:16px}
+ .phones{gap:12px}
+ .phones figure{flex:0 0 min(41vw,210px)}
+ .phones.n1,.phones.n2{justify-content:center}
+ .phones.n1{justify-content:center}
+}
+.priv{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--navy)}
+.priv .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+.priv h2{margin:0 0 8px}
+.priv p{margin:0;color:var(--mute);font-size:18px}
+.notes{padding:48px 0 30px}
+.warn{border-left:3px solid var(--warn);background:rgba(240,161,74,.08);padding:14px 18px;border-radius:0 12px 12px 0;color:var(--text);margin:0 0 26px;font-size:16px}
+.warn b{color:var(--warn)}
+.notes h3{font-family:var(--fd);font-size:20px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin:0 0 6px}
+.notes p{margin:0;color:var(--mute);font-size:15px}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <a class="brand" href="de.html"><img src="img/icono_180.png" alt="" width="34" height="34"><span>ANCHOR<b>FIX</b></span></a>
+  <div class="sp"></div>
+  <ul class="langs"><li><a href="index.html" hreflang="es" lang="es" data-lang="es">ES</a></li><li><a href="en.html" hreflang="en" lang="en" data-lang="en">EN</a></li><li><a href="de.html" hreflang="de" lang="de" data-lang="de" class=current aria-current=page>DE</a></li><li><a href="fr.html" hreflang="fr" lang="fr" data-lang="fr">FR</a></li><li><a href="it.html" hreflang="it" lang="it" data-lang="it">IT</a></li><li><a href="pt.html" hreflang="pt" lang="pt" data-lang="pt">PT</a></li></ul>
+  <nav><a href="anchorfix-privacidad-de.html">Datenschutz</a></nav>
+</div></div>
+
+<header class="hero">
+  <svg class="iso" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="#4FC8CC" stroke-width="1"><path d="M-50 120 C 250 60, 420 200, 700 130 S 1050 40, 1260 150" opacity="0.90"/><path d="M-50 175 C 250 115, 420 255, 700 185 S 1050 95, 1260 205" opacity="0.83"/><path d="M-50 230 C 250 170, 420 310, 700 240 S 1050 150, 1260 260" opacity="0.76"/><path d="M-50 285 C 250 225, 420 365, 700 295 S 1050 205, 1260 315" opacity="0.69"/><path d="M-50 340 C 250 280, 420 420, 700 350 S 1050 260, 1260 370" opacity="0.62"/><path d="M-50 395 C 250 335, 420 475, 700 405 S 1050 315, 1260 425" opacity="0.55"/><path d="M-50 450 C 250 390, 420 530, 700 460 S 1050 370, 1260 480" opacity="0.48"/><path d="M-50 505 C 250 445, 420 585, 700 515 S 1050 425, 1260 535" opacity="0.41"/><path d="M-50 560 C 250 500, 420 640, 700 570 S 1050 480, 1260 590" opacity="0.34"/><path d="M-50 615 C 250 555, 420 695, 700 625 S 1050 535, 1260 645" opacity="0.27"/></svg>
+  <div class="wrap">
+    <div class="kicker">Ankeralarm</div>
+    <h1>Entspannt vor Anker.</h1>
+    <p class="lead">ANCHORFIX zeigt dir den Grund, bevor du den Anker wirfst, und weckt dich, wenn das Boot slippt.</p>
+    <div class="ctas">
+      <a class="btn play" href="https://play.google.com/store/apps/details?id=com.rdrp.fondeofix"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 6 3.5Z"/></svg>Bei Google Play laden</a>
+      <a class="btn ghost" href="#funciones">Funktionen ansehen</a>
+    </div>
+    <div class="heroimg"><img src="img/hero_de.webp" width="1024" height="500" alt="ANCHORFIX"></div>
+  </div>
+</header>
+
+<section class="intro" id="funciones"><div class="wrap"><h2>Alles, was du zum Ankern brauchst</h2></div></section>
+<section class="feat"><div class="wrap"><div class="txt"><div class="num"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 4.5 9-4.5" opacity=".55"/></svg></div><span>01</span></div><h3>Den Grund sehen, bevor du ankerst</h3><p>Posidonia- und andere Seegraswiesen, Korallen und Riffe. Sandflecken abseits der Wiesen mit ungefährer Tiefe und eine Warnung, wenn Anker oder Schwojkreis eine geschützte Wiese berühren.</p></div><div class="phones n2"><figure><img src="img/de/02.webp" width="420" height="814" loading="lazy" alt="Seegras und Sand"><figcaption>Seegras und Sand</figcaption></figure><figure><img src="img/de/03.webp" width="420" height="814" loading="lazy" alt="Korallen"><figcaption>Korallen</figcaption></figure></div></div></section>
+<section class="feat rev"><div class="wrap"><div class="txt"><div class="num"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="5.5"/><path d="M12 4.5V2"/><path d="M2 19c2.5 0 2.5-1.5 5-1.5S9.5 19 12 19s2.5-1.5 5-1.5S19.5 19 22 19"/><path d="M12 15.5V18"/></svg></div><span>02</span></div><h3>Bojenfelder</h3><p>Bojen gelb, wenn reserviert werden muss, blau, wenn nicht – mit Betreiber, Telefon, UKW-Kanal und Reservierungslink. Dazu die Gebiete, in denen Ankern verboten ist.</p></div><div class="phones n2"><figure><img src="img/de/05.webp" width="420" height="814" loading="lazy" alt="Bojen und Reservierung"><figcaption>Bojen und Reservierung</figcaption></figure><figure><img src="img/de/06.webp" width="420" height="814" loading="lazy" alt="Bojenfelder"><figcaption>Bojenfelder</figcaption></figure></div></div></section>
+<section class="feat"><div class="wrap"><div class="txt"><div class="num"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5c2.5 0 2.5-1.5 5-1.5S9.5 5 12 5s2.5-1.5 5-1.5S19.5 5 22 5"/><path d="M12 8v10"/><path d="m8.5 14.5 3.5 3.5 3.5-3.5"/><path d="M4 21h16"/></svg></div><span>03</span></div><h3>Tiefe und Kette</h3><p>Tiefenlinien und Lotungen, mit Hinweis, wo die Tiefe nur geschätzt ist. Der Ankerrechner sagt dir anhand von Lotung, Boot und erwartetem Wind, wie viel Kette du stecken sollst und wo dein Schwojkreis liegen wird.</p></div><div class="phones n3"><figure><img src="img/de/07.webp" width="420" height="814" loading="lazy" alt="Tiefen"><figcaption>Tiefen</figcaption></figure><figure><img src="img/de/10.webp" width="420" height="814" loading="lazy" alt="Ankerrechner"><figcaption>Ankerrechner</figcaption></figure><figure><img src="img/de/11.webp" width="420" height="814" loading="lazy" alt="Empfohlene Kette"><figcaption>Empfohlene Kette</figcaption></figure></div></div></section>
+<section class="feat rev"><div class="wrap"><div class="txt"><div class="num"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg></div><span>04</span></div><h3>Wetter und Winddreher</h3><p>Windvorhersage auf der Karte mit animierten Partikeln und stündlicher Vorhersage für 72 h. Schutz des Ankerplatzes je Windrichtung, Barometer mit Tendenz und Warnungen während der Wache, wenn gefährlicher Wind vorhergesagt wird oder der Luftdruck schnell fällt.</p></div><div class="phones n3"><figure><img src="img/de/08.webp" width="420" height="814" loading="lazy" alt="Windvorhersage"><figcaption>Windvorhersage</figcaption></figure><figure><img src="img/de/09.webp" width="420" height="814" loading="lazy" alt="Barometer und Schutz"><figcaption>Barometer und Schutz</figcaption></figure><figure><img src="img/de/12.webp" width="420" height="814" loading="lazy" alt="Warnungen und Stundenvorhersage"><figcaption>Warnungen und Stundenvorhersage</figcaption></figure></div></div></section>
+<section class="feat"><div class="wrap"><div class="txt"><div class="num"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><path d="M12 7.2V21"/><path d="M8 11h8"/><path d="M4 14a8 8 0 0 0 16 0"/><path d="M4 14l-1.5 1.5M20 14l1.5 1.5"/></svg></div><span>05</span></div><h3>Ankerwache</h3><p>Schwojkreis, Track des Boots und Abstand zum Anker. Ein Ankeralarm, der auch im Stumm-Modus ertönt, mit Früherkennung, bevor das Boot den Kreis verlässt, dazu Alarme bei GPS-Verlust und schwachem Akku.</p></div><div class="phones n2"><figure><img src="img/de/18.webp" width="420" height="814" loading="lazy" alt="Ankerwache"><figcaption>Ankerwache</figcaption></figure><figure><img src="img/de/19.webp" width="420" height="814" loading="lazy" alt="Ankeralarm"><figcaption>Ankeralarm</figcaption></figure></div></div></section>
+<section class="feat rev"><div class="wrap"><div class="txt"><div class="num"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="9" height="16" rx="2"/><path d="M15 7a5 5 0 0 1 0 8M18 4.5a9 9 0 0 1 0 13"/></svg></div><span>06</span></div><h3>Alarme an andere Handys</h3><p>Alarme erreichen ein Handy an Land über die kostenlose App ntfy, ohne Registrierung. Ein anderes Handy oder Tablet an Bord kann die Wache per WLAN verfolgen, ohne Internet.</p></div><div class="phones n2"><figure><img src="img/de/15.webp" width="420" height="814" loading="lazy" alt="Alarme an andere Handys"><figcaption>Alarme an andere Handys</figcaption></figure><figure><img src="img/de/16.webp" width="420" height="814" loading="lazy" alt="Per WLAN teilen"><figcaption>Per WLAN teilen</figcaption></figure></div></div></section>
+<section class="feat"><div class="wrap"><div class="txt"><div class="num"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"/></svg></div><span>07</span></div><h3>Offline-Karten</h3><p>Wähle auf der Weltkarte die Zone deines nächsten Ziels, lade sie vor dem Ablegen herunter und nutze sie ohne Internet.</p><div class="big">148</div><p><b>Kartenzonen weltweit.</b> Mittelmeer, Atlantik, Karibik, Pazifik, Indischer Ozean und Südamerika. Einmal geladen, funktionieren sie ohne Internet.</p><p>Auf Deutsch, Englisch, Spanisch, Französisch, Italienisch und Portugiesisch.</p></div><div class="phones n1"><figure><img src="img/de/17.webp" width="420" height="814" loading="lazy" alt="Zonenkarte"><figcaption>Zonenkarte</figcaption></figure></div></div></section>
+<section class="feat rev"><div class="wrap"><div class="txt"><div class="num"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></div><span>08</span></div><h3>Hilfe in der App</h3><p>Eine vollständige Offline-Anleitung: richtig ankern, die Grundkarte lesen, Bojenfelder, die Alarme, Wetter und Winddreher und wie du verhinderst, dass das System die Wache beendet.</p></div><div class="phones n1"><figure><img src="img/de/14.webp" width="420" height="814" loading="lazy" alt="Hilfe"><figcaption>Hilfe</figcaption></figure></div></div></section>
+
+<section class="priv"><div class="wrap">
+  <div><h2>Dein Ankerplatz gehört dir</h2><p>Keine Konten, keine Werbung, keine Analyse. Deine Position bleibt auf deinem Handy.</p></div>
+  <a class="btn ghost" href="anchorfix-privacidad-de.html">Datenschutzerklärung lesen →</a>
+</div></section>
+
+<div class="notes"><div class="wrap">
+  <p class="warn"><b>Hinweis:</b> Karten und Vorhersagen dienen nur zur Orientierung. Sie ersetzen weder amtliche Seekarten noch das Echolot oder die Wache an Bord.</p>
+  <h3>Daten</h3>
+  <p>© OpenStreetMap-Mitwirkende · Allen Coral Atlas · EMODnet · GEBCO · NOAA (GFS) · amtliche Seegraskartierung der jeweiligen Länder.</p>
+</div></div>
+
+<footer><div class="wrap">
+  <span>© 2026 <a href="https://rdrp-studio.github.io/">RDRP Studio</a> · Eine App von RDRP Studio</span>
+  <a href="anchorfix-privacidad-de.html">Datenschutzerklärung</a>
+  <a href="mailto:delrosalr@gmail.com">Kontakt</a>
+  <ul class="langs"><li><a href="index.html" hreflang="es" lang="es" data-lang="es">ES</a></li><li><a href="en.html" hreflang="en" lang="en" data-lang="en">EN</a></li><li><a href="de.html" hreflang="de" lang="de" data-lang="de" class=current aria-current=page>DE</a></li><li><a href="fr.html" hreflang="fr" lang="fr" data-lang="fr">FR</a></li><li><a href="it.html" hreflang="it" lang="it" data-lang="it">IT</a></li><li><a href="pt.html" hreflang="pt" lang="pt" data-lang="pt">PT</a></li></ul>
+</div></footer>
+<script>
+document.querySelectorAll('.langs a').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('anchorfix-lang',a.dataset.lang)}catch(e){}})});
+</script>
+</body>
+</html>
