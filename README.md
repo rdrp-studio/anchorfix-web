@@ -7,4 +7,4 @@ Web de presentación y política de privacidad de ANCHORFIX (RDRP Studio).
 - `img/`: icono, gráfico principal y capturas por idioma.
 
 Publicación: sube estos archivos a la raíz del repositorio `rdrp-studio/anchorfix-web` y activa Pages
-en Settings → Pages (rama `main`, carpeta `/ (root)`). Quedará en https://rdrp-studio.github.io/anchorfix-web/
+en Settings → Pages (rama `main`, carpeta `/ (root)`). Quedará en https://www.rdrp-studio.com/anchorfix-web/
